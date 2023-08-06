@@ -1,26 +1,10 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteContactThunk } from 'redux/operations.js';
+import useDeleteContact from 'hooks/useDeleteContact.js';
 import ContactListItem from '../ContactListItem/ContactListItem.js';
-import { selectContacts, selectFilter } from 'redux/selectors.js';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);
-  const dispatch = useDispatch();
-
-  const onRemoveContact = contactId => {
-    dispatch(deleteContactThunk(contactId));
-  };
-
-  const getFilteredContacts = () => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter)
-    );
-  };
-
-  const filteredContacts = getFilteredContacts();
+  const { filteredContacts, onRemoveContact } = useDeleteContact();
 
   return filteredContacts.length === 0 ? (
     <p className={css.contactsEmptyText}>No contact</p>

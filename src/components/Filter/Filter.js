@@ -1,17 +1,9 @@
-import React, { useId } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'redux/slices/filterSlice';
-import { selectFilter } from 'redux/selectors';
+import React from 'react';
+import useFilterContacts from 'hooks/useFilterContacts';
 import css from './Filter.module.css';
 
 const Filter = () => {
-  const filter = useSelector(selectFilter);
-  const dispatch = useDispatch();
-  const filterNameId = useId();
-
-  const onChangeFilter = event => {
-    dispatch(setFilter(event.target.value.trim()));
-  };
+  const { filter, filterNameId, onChangeFilter } = useFilterContacts();
 
   return (
     <div className={css.container}>
