@@ -10,7 +10,7 @@ const Filter = () => {
   const filterNameId = useId();
 
   const onChangeFilter = event => {
-    dispatch(setFilter(event.target.value));
+    dispatch(setFilter(event.target.value.trim()));
   };
 
   return (

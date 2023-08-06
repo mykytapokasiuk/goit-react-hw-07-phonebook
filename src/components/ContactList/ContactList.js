@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { deleteContactThunk } from 'redux/operations.js';
 import ContactListItem from '../ContactListItem/ContactListItem.js';
-import { deleteContact } from 'redux/slices/contactsSlice.js';
 import { selectContacts, selectFilter } from 'redux/selectors.js';
 import css from './ContactList.module.css';
 
@@ -10,7 +10,9 @@ const ContactList = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
-  const onRemoveContact = contactId => dispatch(deleteContact(contactId));
+  const onRemoveContact = contactId => {
+    dispatch(deleteContactThunk(contactId));
+  };
 
   const getFilteredContacts = () => {
     return contacts.filter(contact =>
@@ -25,11 +27,11 @@ const ContactList = () => {
   ) : (
     <div className={css.container}>
       <ul className={css.contactList}>
-        {filteredContacts.map(({ id, name, number }) => (
+        {filteredContacts.map(({ id, name, phone }) => (
           <ContactListItem
             key={id}
             name={name}
-            number={number}
+            phone={phone}
             contactId={id}
             onRemoveContact={onRemoveContact}
           />

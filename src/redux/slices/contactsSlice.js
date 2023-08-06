@@ -10,7 +10,6 @@ const initialState = { items: [], isLoading: false, error: null };
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
-  reducers: {},
   extraReducers: builder =>
     builder
       .addCase(fetchContactsThunk.pending, state => {
@@ -43,7 +42,7 @@ const contactsSlice = createSlice({
       })
       .addCase(deleteContactThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.items = state.items.filter(item => item.id !== action.payload);
+        state.items = state.items.filter(item => item.id !== action.payload.id);
       })
       .addCase(deleteContactThunk.rejected, (state, action) => {
         state.isLoading = false;

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './ContactListItem.module.css';
 
-const ContactListItem = ({ name, number, contactId, onRemoveContact }) => {
+const ContactListItem = ({ name, phone, contactId, onRemoveContact }) => {
   return (
     <li className={css.listItem}>
-      {name}: {number}
+      {name}: {phone}
       <button
         className={css.listItemBtn}
         type="button"
@@ -19,7 +19,7 @@ const ContactListItem = ({ name, number, contactId, onRemoveContact }) => {
 
 ContactListItem.propTypes = {
   name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
   contactId: PropTypes.string.isRequired,
   onRemoveContact: PropTypes.func.isRequired,
 };

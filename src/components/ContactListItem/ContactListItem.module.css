@@ -1,6 +1,6 @@
 .listItem {
     display: flex;
-    gap: 12px;
+    gap: 15px;
     justify-content: space-between;
     align-items: center;
     font-size: 20px;
@@ -9,8 +9,7 @@
 }
 
 .listItemBtn {
-    width: 100px;
-    padding: 2px;
+    padding: 2px 10px;
     color: #ffffff;
     font-size: 18px;
     letter-spacing: 0.06em;
@@ -26,6 +25,5 @@
     background-color: rgb(190, 162, 128);
     color: #000000;
     box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.75);
-    /* transform: scale(1.05); */
     cursor: pointer;
 }
