@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContactThunk } from 'redux/operations';
-import { selectContacts, selectFilter } from 'redux/selectors';
+import { deleteContactThunk } from 'redux/contacts/operations.js';
+import { selectContacts } from 'redux/contacts/selectors.js';
+import { selectFilter } from 'redux/filter/selectors.js';
 
 const useDeleteContact = () => {
   const contacts = useSelector(selectContacts);

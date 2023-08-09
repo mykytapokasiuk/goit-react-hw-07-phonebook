@@ -1,8 +1,8 @@
 import { useId, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContactThunk } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
-import { onSameName } from 'services/utils';
+import { addContactThunk } from 'redux/contacts/operations.js';
+import { selectContacts } from 'redux/contacts/selectors.js';
+import { onSameName } from 'services/utils.js';
 
 const useAddContact = () => {
   const [name, setName] = useState('');

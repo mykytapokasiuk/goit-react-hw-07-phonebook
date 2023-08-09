@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useFetchContacts from 'hooks/useFetchContacts.js';
 import ContactForm from './ContactForm/ContactForm.js';
 import Filter from './Filter/Filter.js';
@@ -9,10 +9,15 @@ import css from './App.module.css';
 
 const App = () => {
   const { contacts, isLoading, error } = useFetchContacts();
+
+  useEffect(() => {
+    if (!error) return;
+    notifications.onError(error);
+  }, [error]);
+
   return (
     <div className={css.app}>
       <div className={css.container}>
-        {error !== null && notifications.onError(error)}
         {isLoading && <Loader />}
         <h1>Phonebook</h1>
         <ContactForm />

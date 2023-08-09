@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContactsThunk } from 'redux/operations';
-import { selectContacts, selectError, selectIsloading } from 'redux/selectors';
+import { fetchContactsThunk } from 'redux/contacts/operations.js';
+import {
+  selectContacts,
+  selectError,
+  selectIsloading,
+} from 'redux/contacts/selectors.js';
 
 const useFetchContacts = () => {
   const contacts = useSelector(selectContacts);
